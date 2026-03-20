@@ -25,57 +25,124 @@ body {
   border-radius: 15px;
 }
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You</title>
+<!-- Import Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet">
 
-.gif-letter {
-  width: 100px;
-  display: block;
-  margin: 0 auto 15px auto;
-  border-radius: 10px;
-}
+<style>
+  :root {
+    --primary-color: #333;
+    --accent-color: #d4af37; /* Gold soft */
+    --bg-color: #ffffff;
+  }
 
-.page { display: none; max-width: 90%; padding: 20px; z-index: 2; position: relative; }
-.active { display: block; }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-color);
+    background-image: radial-gradient(#f0f0f0 1px, transparent 1px);
+    background-size: 20px 20px; /* Subtle pattern background */
+    overflow: hidden;
+    text-align: center;
+  }
 
-h2 {
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  text-shadow: 1px 1px 4px rgba(255,255,255,0.8);
-  margin-bottom: 10px;
-}
+  /* GIF STYLE */
+  .gif-container {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  }
 
-/* BUTTON */
-button {
-  margin-top: 20px;
-  padding: 10px 22px;
-  border-radius: 20px;
-  border: 1px solid rgba(0,0,0,0.1);
-  background: rgba(255,255,255,0.5);
-  color: #333;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.25s;
-  backdrop-filter: blur(5px);
-}
-button:hover { background: rgba(255,255,255,0.7); }
+  .gif-letter {
+    width: 120px;
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 15px;
+  }
 
-/* LETTER STYLE */
-.letter {
-  background: #000000;
-  color: #ffffff;
-  padding: 30px 40px;
-  border-radius: 20px;
-  border: 2px solid #f2d5b3;
-  max-width: 500px;
-  margin: auto;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  font-size: 14px;
-  line-height: 1.6;
-  text-align: left;
-  position: relative;
-  overflow-y: auto; 
-  z-index: 2;
-  max-height: 80vh;
-}
+  /* PAGE TRANSITIONS */
+  .page { 
+    display: none; 
+    max-width: 85%; 
+    padding: 20px; 
+    animation: fadeIn 0.8s ease;
+  }
+  .active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  h2 {
+    font-weight: 500;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+
+  /* BUTTON MODERN */
+  button {
+    margin-top: 15px;
+    padding: 12px 28px;
+    border-radius: 30px;
+    border: 1px solid #eee;
+    background: #fff;
+    color: #555;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  button:hover {
+    background: #fdfdfd;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    border-color: #ddd;
+  }
+
+  /* LETTER STYLE (MODERN DARK) */
+  .letter {
+    background: #1a1a1a;
+    color: #f9f9f9;
+    padding: 40px 30px;
+    border-radius: 30px;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: left;
+    max-height: 75vh;
+    overflow-y: auto;
+    border-bottom: 4px solid var(--accent-color);
+  }
+
+  .letter p {
+    font-family: 'Caveat', cursive; /* Font tulisan tangan untuk isi surat */
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  /* Scrollbar Custom */
+  .letter::-webkit-scrollbar { width: 5px; }
+  .letter::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
 </style>
 </head>
 <body>
@@ -84,50 +151,43 @@ button:hover { background: rgba(255,255,255,0.7); }
   <source src="https://cdn.discordapp.com/attachments/1447585397935837234/1484448959052382218/beabadoobee_-_Glue_Song_Lyrics_-_Creative_Chaos.mp3?ex=69be4453&is=69bcf2d3&hm=ed77b05ecc15e19217f50ec8d035a051f86adaf20c894cec33d04486cdad2dc8&" type="audio/mp3">
 </audio>
 
-<!-- PAGE 1 -->
 <div class="page active" id="page1">
-  <img src="248975e29fb89242e8c485c8eaf412a2.gif" class="gif-container" alt="gif">
-  <h2>halo kakenn abangg</h2>
+  <img src="248975e29fb89242e8c485c8eaf412a2.gif" class="gif-container">
+  <h2>halo kakenn abangg ✨</h2>
   <button onclick="mulaiMusik(); nextPage('page1','page2')">lanjut</button>
 </div>
 
-<!-- PAGE 2 -->
 <div class="page" id="page2">
-  <img src="79ea6ffa1ca3345b59042a9ce9638dfc.gif" class="gif-container" alt="gif">
-  <h2>kaka kentut, abang ipar plenger. kaye mau bilang..</h2>
+  <img src="79ea6ffa1ca3345b59042a9ce9638dfc.gif" class="gif-container">
+  <h2>kaka kentut, abang ipar plenger.<br>kaye mau bilang..</h2>
   <button onclick="nextPage('page2','page3')">lanjut</button>
 </div>
 
-<!-- PAGE 3 -->
 <div class="page" id="page3">
-  <img src="37e6546555565309406876ec766d5b05.gif" class="gif-container" alt="gif">
-  <h2>makasih ya uda jadi kaka dan abang yang kosyak & baik😈</h2>
+  <img src="37e6546555565309406876ec766d5b05.gif" class="gif-container">
+  <h2>makasih ya uda jadi kaka dan abang yang kosyak & baik 😈</h2>
   <button onclick="nextPage('page3','page4')">lanjut</button>
 </div>
 
-<!-- PAGE 4 -->
 <div class="page" id="page4">
-  <img src="1c57316647107a7e93031ef8c7b6f1f5.gif" class="gif-container" alt="gif">
-  <h2>happy eid mubarak kakaa & abang!! 🎉</h2>
-  <button onclick="nextPage('page4','page5')">lanjut</button>
+  <img src="1c57316647107a7e93031ef8c7b6f1f5.gif" class="gif-container">
+  <h2>happy eid mubarak<br>kakaa & abang!! 🎉</h2>
+  <button onclick="nextPage('page4','page5')">buka surat</button>
 </div>
 
-<!-- PAGE 5 (LETTER) -->
 <div class="page" id="page5">
   <div class="letter">
-    <!-- GIF KHUSUS PAGE 5 -->
-    <img src="94d6668cb38b312395c40c0e77be5566.gif" class="gif-letter" alt="gif">
-    
+    <img src="94d6668cb38b312395c40c0e77be5566.gif" class="gif-letter">
     <p>
       happy eid mubarak ya kalian :d<br><br>
-      kaye gaakan bosan buat say thank you ke kalian karena kalian udaa baik bangett sama kaye, kaye sayang kalian :c.<br>
+      maaf lakum lillahi ta'ala untuk semua salahnya kaye, mau sikap dan tutur kata yang bikin kalian ngga nyaman, yaa:c kaye gaakan bosan buat say thank you ke kalian karena kalian udaa baik bangett sama kaye, kaye sayang kalian :c.<br><br>
       thank you for being a best part in my life kakenn, abangg.<br><br>
-      Kaye gaakan bosen juga untuk doain kalian berdua yang baik baik!!<br>
-      buat abang, abang gabolee yaa nyakitin kakenn, awas aja klo nyakitin kakenn😈 kaye santet trus nanti perutnya kaye isiin sound horeg biar jeder jeder😏💪🏻.<br>
-      buat kakenn, have a good life ya kakennn! semoga apa yang jadi kemauan kaka semuanya tercapai (aamiin).<br>
-      kaye sayangg kaliannnn🤸🏻‍♀️🤸🏻‍♀️
+      Kaye gaakan bosen juga untuk doain kalian berdua yang baik baik!!<br><br>
+      buat abang, abang gabolee yaa nyakitin kakenn, awas aja klo nyakitin kakenn 😈 kaye santet trus nanti perutnya kaye isiin sound horeg biar jeder jeder😏💪🏻.<br><br>
+      buat kakenn, have a good life ya kakennn! semoga apa yang jadi kemauan kaka semuanya tercapai (aamiin).<br><br>
+      kaye sayangg kaliannnn 🤸🏻‍♀️🤸🏻‍♀️
     </p>
-    <button onclick="ulang()" style="color: #fff; background: rgba(255,255,255,0.2);">ulang dari awal</button>
+    <button onclick="ulang()" style="color: #fff; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); width: 100%;">ulang dari awal</button>
   </div>
 </div>
 
@@ -135,7 +195,7 @@ button:hover { background: rgba(255,255,255,0.7); }
 var audio = document.getElementById("myAudio");
 
 function mulaiMusik() {
-  audio.play();
+  audio.play().catch(e => console.log("Audio play failed", e));
 }
 
 function nextPage(current, next) {
@@ -151,4 +211,3 @@ function ulang() {
 </script>
 </body>
 </html>
-
